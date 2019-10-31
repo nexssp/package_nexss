@@ -51,7 +51,7 @@ bind .tree {<<TreeviewSelect>>}  {
   
     set txt [.tree item [.tree focus] -text]
     # puts $::env(NEXSS_PACKAGES_PATH)/$txt
-    set config [::json::parse [exec nexss config --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json]] 
+    set config [::json::parse [exec nexss config get --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json]] 
 
     array set configArray $config
     # parray  configArray
@@ -75,9 +75,9 @@ bind .tree {<<TreeviewSelect>>}  {
         set outputs $configArray(outputs)
     }
     
-    # set seqs [::json::parse [exec nexss config --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json --select sequences]] 
-    # set inputs [::json::parse [exec nexss config --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json --select inputs]] 
-    # set outputs [::json::parse [exec nexss config --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json --select outputs]] 
+    # set seqs [::json::parse [exec nexss config get --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json --select sequences]] 
+    # set inputs [::json::parse [exec nexss config get --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json --select inputs]] 
+    # set outputs [::json::parse [exec nexss config get --configPath $::env(NEXSS_PACKAGES_PATH)/$txt --json --select outputs]] 
     
     # puts $files
     array set v_array $files

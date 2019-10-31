@@ -1,5 +1,5 @@
 name: Nexss Package Browser
 author: Marcin Polak mapoart@gmail.com
-debug: true
+locked: true
 files:
   - name: src/launchpad.tcl
