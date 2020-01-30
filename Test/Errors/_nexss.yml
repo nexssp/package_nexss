@@ -1,0 +1,8 @@
+name: Errors
+debug: true
+files:
+  - name: src/errors1.js
+  - name: src/errors2.js
+  - name: src/errors3.php
+  - name: src/errors4.ps1
+  - name: src/errors5.js
