@@ -1,0 +1,6 @@
+name: Errors Solutions
+debug: true
+files:
+  - name: src/errors1.js
+  - name: src/errors2.js
+  - name: src/errors3.js
