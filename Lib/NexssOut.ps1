@@ -8,7 +8,7 @@ if ($nxsParameters) {
     $nxsParameters | nxsOutClean
 }
 
-@("nxsOutAs", "nxsInAs", "debug", "nxsIn") | nxsOutClean
+@("nxsOutAs", "nxsInAs", "debug", "nxsIn", "_") | nxsOutClean
 
 Write-Host 	(ConvertTo-Json -Compress $NexssStdout)
 
