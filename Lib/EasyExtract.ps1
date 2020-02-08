@@ -5,8 +5,9 @@ function sz() {
     if (!(Get-Command 7z -errorAction SilentlyContinue)) { 
         scoop install 7zip
     }
-    
-    7z @args
+    # nxsInfo("Unpacking archive with 7z . Please wait..")
+    # break
+    7z @args *>$null
 }
 
 function ur() {

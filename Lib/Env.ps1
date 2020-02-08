@@ -24,7 +24,9 @@ function ensureEnvPath {
     else {
         nxsInfo("Adding $path to the users PATH environment variable.") 
         [System.Environment]::SetEnvironmentVariable("Path", $path + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User"), "User") # for the user
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") 
         nxsOk("$path has been added to the user environment variables.") 
+        nxsWarn("You may need to restart your terminal for the changes to take effect.") 
         refreshEnv     
     }
 }

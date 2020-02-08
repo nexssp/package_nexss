@@ -22,6 +22,7 @@ if (($inFieldValue_1.count -eq 0) -and $NexssStdout._.count -gt 0) {
 }
 
 $inFieldValue_1 = $NexssStdout.$inField_1
+$NexssStdout.PSObject.Properties.Remove($inField_1)
 
 # Out result name fields
 $resultField_1 = "nxsOut"
