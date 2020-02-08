@@ -1,5 +1,22 @@
-Set-Alias sz "$env:ProgramFiles\7-Zip\7z.exe"
-Set-Alias ur "$env:ProgramFiles\WinRAR\UnRAR.exe"
+# Set-Alias sz "$env:ProgramFiles\7-Zip\7z.exe"
+$input | . "$($env:NEXSS_PACKAGES_PATH)/Nexss/Lib/NexssLog.ps1"
+
+function sz() {
+    if (!(Get-Command 7z -errorAction SilentlyContinue)) { 
+        scoop install 7zip
+    }
+    
+    7z @args
+}
+
+function ur() {
+    if (!(Get-Command unrar -errorAction SilentlyContinue)) { 
+        scoop install winrar
+    }
+    
+    unrar @args
+}
+
 
 # Function: Easy-Extract
 function EasyExtract {
@@ -15,11 +32,21 @@ function EasyExtract {
         [ValidateNotNullOrEmpty()]
         [string]$DestinationPath = "*"
     )
+
+    if (!$Path) {
+        nxsError("You need to pass archived file to unpack.")
+        break;
+    }
+
+    if (!(Test-Path $Path)) {
+        nxsError("File not found $Path")
+        exit;
+    }
     
     $Item = Get-Item -Path $Path
 
     if (!(Test-Path $Item)) {
-        Write-Error "NEXSS/error:File not found $item"
+        nxsError("File not found $item")
         exit;
     }
 
@@ -42,4 +69,5 @@ function EasyExtract {
         }
     }
 }
+
 Set-Alias extract EasyExtract
