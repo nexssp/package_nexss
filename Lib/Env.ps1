@@ -17,8 +17,9 @@ function ensureEnvPath {
         nxsError("$path is a file. You can only pass directories.") 
         exit
     }
-
-    if ($($env:Path).ToLower().Contains($($path).ToLower()) -eq $true) { 
+    
+    if ($([System.Environment]::GetEnvironmentVariable("Path", "User") ).ToLower().Contains($($path).ToLower()) -eq $true) { 
+        nxsOk("$path is already added in your system configuration. If you experiencing issues please restart your terminal.") 
         refreshEnv
     }
     else {
