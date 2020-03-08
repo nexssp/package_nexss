@@ -11,15 +11,26 @@ import bpy
 #         else:
 #             o.select_set(False)
 
-def installAddOn(addOnPath, addOnName):
-    bpy.ops.wm.addon_install(filepath=addOnPath)
-    bpy.ops.wm.addon_enable(module='testaddon')
-    bpy.ops.wm.save_userpref()
+def legacyMode():
+    return bpy.app.version < (2, 80, 0)
+
+def addonPath():
+    return bpy.utils.user_resource('SCRIPTS', "addons")
+
+def addonInstall(addOnPath, addOnName):
+    if (legacyMode()):
+        opt = bpy.ops.wm
+    else:
+        opt = bpy.ops.preferences
+
+    opt.addon_install(filepath=addOnPath, overwrite=True)
+    opt.addon_enable(addOnName)
+    opt.save_userpref()
+    # opt.addon_remove(module='addon_name')
 
 def reloadWithSave():
     bpy.ops.wm.save_as_mainfile(filepath=bpy.data.filepath)
     bpy.ops.wm.open_mainfile(filepath=bpy.data.filepath)
-
 
 def test():
     print ("Blender.py for Nexss Programmer.")
