@@ -8,6 +8,8 @@ from NexssIn import *
 
 NexssStdout['testInOut'] = "Yes"
 
-NexssStdout = json.dumps(NexssStdout, ensure_ascii=False).encode('utf8','surrogateescape')
+NexssStdout[NexssStdout['resultField_1']] = "Some custom output"
+
 # STDOUT
+NexssStdout = json.dumps(NexssStdout, ensure_ascii=False).encode('utf8', 'surrogateescape')
 print(NexssStdout.decode('utf8','surrogateescape'))
