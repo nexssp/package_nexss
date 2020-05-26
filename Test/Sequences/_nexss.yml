@@ -1,0 +1,6 @@
+name: Nexss/Test/Sequences
+sequences:
+  default:
+    - name: default.ps1
+  one:
+    - name: one.ps1

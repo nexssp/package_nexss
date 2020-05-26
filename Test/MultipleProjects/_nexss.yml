@@ -1,0 +1,5 @@
+name: MultipleProjects
+debug: true
+files:
+  - name: src/hello1.js
+  - name: src/hello2.js
