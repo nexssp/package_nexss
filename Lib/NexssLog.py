@@ -12,3 +12,6 @@ def nxsError(error):
 
 def nxsWarn(warn):
     sys.stderr.write("NEXSS/warn: %s" % warn) 
+
+def nxsDebug(debug):
+    sys.stderr.write("NEXSS/debug: %s" % debug) 
