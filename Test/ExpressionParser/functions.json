@@ -1,0 +1,6 @@
+{
+  "func1": "${global.func1 = () => 5+5}",
+  "func2": "${global.func2 = () => {return 20+16.1}}",
+  "func3": "${global.func3 = (x) => {return x+1000}}",
+  "func4": "${global.func4 = (x) => x*x}"
+}

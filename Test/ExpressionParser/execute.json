@@ -1,0 +1,6 @@
+{
+  "func1Result": "${eval(func1)()}",
+  "func2Result": "${eval(func2)()}",
+  "func3Result": "${eval(func3)(5)}",
+  "func4Result": "${eval(func4)(10)}"
+}
