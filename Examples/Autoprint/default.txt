@@ -1,0 +1,23 @@
+{
+  "nexss": "FREE/OPENSOURCE 2.1.1",
+  "emailLastUID": 12,
+  "searchCriteria": "12:100",
+  "emailTotal": 1,
+  "emailFound": [
+    {
+      "subject": "polskie znaki ALĄŚLDĄŚAS ął",
+      "from": "Marcin Polak <mapoart@gmail.com>",
+      "to": "test369@nexss.com",
+      "date": "2020-06-05 16:08:26",
+      "size": "24.67 kB",
+      "seen": 1,
+      "uid": 12,
+      "message_id": "<CALkHHAXOuz6o_5rir-tCEF89KCeGF2TH2DFZgCS5Ek9g_83pxQ@mail.gmail.com>",
+      "udate": 1591366106
+    }
+  ],
+  "attachmentSearchRegExp": "/^.*\\.(pdf)$/i",
+  "emailStoredAttachments": [
+    "./invoices/12_12341512xxxonet3.pdf"
+  ]
+}

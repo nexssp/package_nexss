@@ -1,0 +1,12 @@
+// autoPrint.nexss
+autoprint.config.json // Reads config to the memory
+Storage/JSON/Get emailLastUID --nxsDefault="1"
+Email --emailSearch=${emailLastUID} --attachmentType="pdf"
+Output/End --_ifNotExists='emailStoredAttachments' "No new emails found" --_type=warn
+Convert/ToTxt --nxsInFrom=emailStoredAttachments // Convert PDF to text
+FS/Find Invoice Faktura --inPath="${cwd}/invoices" --inTypes=txt
+Data/Replace --_replaceFrom=".txt" --_replaceTo=".pdf"
+Printer
+FS/Copy --nxsIn="${cwd}/invoices" --_destination=printed --_delete --_sure
+Storage/JSON/Set emailLastUID '${emailLastUID+1}' // We set which email should be checked next
+Output/End "Process has been done." "Found ${emailStoredAttachments.length}"

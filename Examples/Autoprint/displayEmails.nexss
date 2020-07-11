@@ -1,0 +1,5 @@
+// autoPrint.nexss
+autoprint.config.json // Reads config to the memory
+Output/End --_ifNotExists='emailSearch' "Add eg --emailSearch=10" --_type=warn
+Email --nxsPretty
+Output/End --_ifNotExists='emailTotal' "No emails found" --_type=warn
