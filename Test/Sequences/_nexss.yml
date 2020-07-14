@@ -4,3 +4,11 @@ sequences:
     - name: default.ps1
   one:
     - name: one.ps1
+  debug:
+    - name: Debug
+  ^about(.)(.*): # Regular expression for sequence
+    seq: debug # Example of usage of another sequence in sequence
+  about*:
+    seq: debug
+  ^2about(?<found1>.)(?<found2>.)(?<found3>.*):
+    seq: debug
