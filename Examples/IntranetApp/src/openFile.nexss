@@ -1,0 +1,8 @@
+$# --testing=asasdsd
+$# --testing2=asasdsd2
+$# --testing3=asasdsd3
+$# --testing4=asasdsd4
+$# --testing5=asasdsd5
+// Output/End "messssageeeeeeee" --_ifExists=testing --_debug
+Debug
+Template 

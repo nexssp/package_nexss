@@ -1,0 +1,10 @@
+// Nexss Programmer PRO 2.1.0 Example - Config file
+
+$# --myvar='1000000000' --qqqqq=5555
+
+$# --contentName=docs --y=${myvar+5} --templatePath=${contentName}/template --assetsPath=${contentName}/assets
+
+$# --mean=1
+
+$# --myVar=${process.env.NEXSS_CACHE_PATH} --myVar=${mean+1}
+

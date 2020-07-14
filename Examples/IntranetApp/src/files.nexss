@@ -1,0 +1,2 @@
+FS/Dir . --nxsAs=files
+Template src/views/pages/files.pug

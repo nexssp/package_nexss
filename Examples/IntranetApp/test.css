@@ -1,0 +1,6 @@
+/* This file shouldn't be available from server!Only public folder can be accessed from the server. */
+
+body {
+    background-color: red;
+    color: white;
+}
