@@ -1,8 +1,7 @@
 extends ../layout.pug
 block page
     h1 404
-    p Address not found
-    include:markdown-it my.md
-    - if (nxsLive)
-        p yyyy !{xxx}
-    //- #{contentxx('tttttttttt')}
+    p Address not found    
+    - if (!nxsLive)
+        p Debug Information (Disable with --nxsLive)
+        p !{nexssDebugInfo}
