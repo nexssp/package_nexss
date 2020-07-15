@@ -1,2 +1,3 @@
-FS/Dir . --nxsAs=files
+Debug --nxsAs=debugInfo
+FS/Dir '${typeof folder!=="undefined" && folder!==""?folder:"."}' --nxsAs=files
 Template src/views/pages/files.pug

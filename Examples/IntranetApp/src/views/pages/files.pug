@@ -1,6 +1,6 @@
 extends ../layout.pug
 block page
-  h1 Files for #{ page_path }
+  h1 Files for #{ folder }
   table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
     thead
       tr
@@ -11,11 +11,12 @@ block page
     tbody
       if(files)
           each file in files
+              - var link = file.dir ? '/files.hnxs/' + file.path : '/openFile/' + file.path
               tr
                   td.mdl-data-table__cell--non-numeric
-                      a(href='openFile/' + file.path) #{ file.name }
+                      a(href=link) #{ file.name }
                   td #{ file.dir ? 'folder' : 'file' }
-                  td #{ file.mtime }
+                  td(style=('size="5px"')) #{ file.mtime }
                   td #{ file.size }
       else
           tr

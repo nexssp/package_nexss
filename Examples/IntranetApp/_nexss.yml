@@ -9,7 +9,7 @@ sequences:
     - name: Template src/views/pages/openFile.pug
   # nexss:
   #   - name: https://nexss.com --nxsField=nxsOut
-  files.hnxs:
+  files.hnxs/?(?<folder>.*):
     - name: src/files.nexss
   (?<page>.*).hnxs:
     - name: Template src/views/pages/${page}.pug
