@@ -6,7 +6,7 @@
 ## Examples
 
 - **AutoPrint** - Checks emails for Invoices (PDF contained Invoice word), and automatically prints them. The next run checks for new emails etc etc.
-- **IntranetApp** - (WIP) - Simply Application Presetnation in the Browser using Nexss Programmer Project/Package. Sequence
+- **IntranetApp** - Simply Application Presetnation in the Browser using Nexss Programmer Project/Package. Sequence
 - **Dropper** - (TODO)
 - **DistributedApp** - (TODO)
 
