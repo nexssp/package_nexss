@@ -20,12 +20,14 @@ module.exports = () => {
     }
   }
 
-  let NexssStdout = JSON.parse(chunks.join(""));
-
-  NexssStdout.resultField_1 = "nxsOut";
-  if (NexssStdout.nxsOutAs) {
-    NexssStdout.resultField_1 = NexssStdout.nxsOutAs;
-  }
+  let NexssStdout = {};
+  try {
+    NexssStdout = JSON.parse(chunks.join(""));
+    NexssStdout.resultField_1 = "nxsOut";
+    if (NexssStdout.nxsOutAs) {
+      NexssStdout.resultField_1 = NexssStdout.nxsOutAs;
+    }
+  } catch (error) {}
 
   return NexssStdout;
 };
