@@ -1,0 +1,6 @@
+name: multiDropper Example
+files:
+  - name: multiDropperStart.ps1
+# commands:
+#   - name: start
+#     command:
