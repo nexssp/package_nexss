@@ -1,5 +1,4 @@
-# Nexss PROGRAMMER 2.0 - Package Unlock
-#Requires -RunAsAdministrator
+# Nexss PROGRAMMER 2.0 - One.ps1
 $nxsParameters = @()
 $input | . "$($env:NEXSS_PACKAGES_PATH)/Nexss/Lib/NexssIn.ps1"
 
