@@ -18,10 +18,10 @@ function ensureEnvPath {
         exit
     }
 
-    if($IsWindows){
+    if ($IsWindows) {
         if ($([System.Environment]::GetEnvironmentVariable("Path", "User") ).ToLower().Contains($($pathToAdd).ToLower()) -eq $true) { 
-        nxsOk("$pathToAdd is already added in your system configuration. If you experiencing issues please restart your terminal.") 
-        refreshEnv
+            nxsOk("$pathToAdd is already added in your system configuration. If you experiencing issues please restart your terminal.") 
+            refreshEnv
         }
         else {
             nxsInfo("Adding $pathToAdd to the users PATH environment variable.") 
@@ -31,32 +31,44 @@ function ensureEnvPath {
             nxsWarn("You may need to restart your terminal for the changes to take effect.") 
             refreshEnv     
         }
-    } elseif($IsMacOS) { 
+    }
+    elseif ($IsMacOS) { 
         if (Test-Path "~/.bash_profile") {          
-            if(! (grep $pathToAdd "~/.bash_profile")){
+            $exists = Select-String -Path "~/.bash_profile" -Pattern $pathToAdd
+            if ($exists -ne $null) {
+                nxsInfo("Adding path $($pathToAdd) to the environment: ~/.bash_profile")
                 $env:Path += ";${pathToAdd}"
                 # nxsOk("export PATH=`"${pathToAdd}:`$PATH`"")
                 echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bash_profile
-            }else{
+            }
+            else {
                 nxsInfo("$pathToAdd already exists in the /.bash_profile")
             }
-         }else{
+        }
+        else {
+            nxsInfo("Adding path $($pathToAdd) to the environment")
             $env:Path += ";${pathToAdd}"      
             echo "export PATH=`"${pathToAdd}:`$PATH`"" >> ~/.bash_profile
-         }
-    } else{
+        }
+    }
+    else {
         # Linux
-        if (Test-Path "~/.bashrc") {        
-            if(! (grep $pathToAdd "~/.bashrc")){
+        if (Test-Path "~/.bashrc") {    
+            nxsInfo("Adding path $($pathToAdd) to the environment ~/.bashrc")
+            $exists = Select-String -Path "~/.bashrc" -Pattern $pathToAdd
+            if ($exists -ne $null) {
                 $env:Path += ";$pathToAdd"
                 echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bashrc
-            }else{
+            }
+            else {
                 nxsInfo("$pathToAdd already exists in the /.bashrc")
             }
-        }else{
+        }
+        else {
+            nxsInfo("Adding path $($pathToAdd) to the environment ~/.bashrc")
             $env:Path += ";${pathToAdd}"      
             echo "export PATH=`"${pathToAdd}:`$PATH`"" >> ~/.bashrc
-         }
+        }
     }
 }
 
