@@ -32,21 +32,31 @@ function ensureEnvPath {
             refreshEnv     
         }
     } elseif($IsMacOS) { 
-        if(! (grep $pathToAdd "~/.bash_profile")){
-            $env:Path += ";${pathToAdd}"
-            # nxsOk("export PATH=`"${pathToAdd}:`$PATH`"")
-            echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bash_profile
-        }else{
-            nxsInfo("$pathToAdd already exists in the /.bash_profile")
-        }
+        if (Test-Path "~/.bash_profile") {          
+            if(! (grep $pathToAdd "~/.bash_profile")){
+                $env:Path += ";${pathToAdd}"
+                # nxsOk("export PATH=`"${pathToAdd}:`$PATH`"")
+                echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bash_profile
+            }else{
+                nxsInfo("$pathToAdd already exists in the /.bash_profile")
+            }
+         }else{
+            $env:Path += ";${pathToAdd}"      
+            echo "export PATH=`"${pathToAdd}:`$PATH`"" >> ~/.bash_profile
+         }
     } else{
         # Linux
-        if(! (grep $pathToAdd "~/.bashrc")){
-            $env:Path += ";$pathToAdd"
-            echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bashrc
+        if (Test-Path "~/.bashrc") {        
+            if(! (grep $pathToAdd "~/.bashrc")){
+                $env:Path += ";$pathToAdd"
+                echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bashrc
+            }else{
+                nxsInfo("$pathToAdd already exists in the /.bashrc")
+            }
         }else{
-            nxsInfo("$pathToAdd already exists in the /.bashrc")
-        }
+            $env:Path += ";${pathToAdd}"      
+            echo "export PATH=`"${pathToAdd}:`$PATH`"" >> ~/.bashrc
+         }
     }
 }
 
