@@ -5,30 +5,48 @@ function ensureEnvPath {
     # Nexss is SAFE we DO NOT use administrator rights (user level)
     param
     (
-        [Parameter(Mandatory = $true)] [string] $path
+        [Parameter(Mandatory = $true)] [string] $pathToAdd
     )
 
-    if (!(Test-Path $path)) {
-        nxsError("$path does not exists, so it will not be added. Program has been terminated.") 
+    if (!(Test-Path $pathToAdd)) {
+        nxsError("$pathToAdd does not exists, so it will not be added. Program has been terminated.") 
         exit
     }
 
-    if ((Get-Item $path) -isnot [System.IO.DirectoryInfo]) {
-        nxsError("$path is a file. You can only pass directories.") 
+    if ((Get-Item $pathToAdd) -isnot [System.IO.DirectoryInfo]) {
+        nxsError("$pathToAdd is a file. You can only pass directories.") 
         exit
     }
-    
-    if ($([System.Environment]::GetEnvironmentVariable("Path", "User") ).ToLower().Contains($($path).ToLower()) -eq $true) { 
-        nxsOk("$path is already added in your system configuration. If you experiencing issues please restart your terminal.") 
+
+    if(0){
+        if ($([System.Environment]::GetEnvironmentVariable("Path", "User") ).ToLower().Contains($($pathToAdd).ToLower()) -eq $true) { 
+        nxsOk("$pathToAdd is already added in your system configuration. If you experiencing issues please restart your terminal.") 
         refreshEnv
-    }
-    else {
-        nxsInfo("Adding $path to the users PATH environment variable.") 
-        [System.Environment]::SetEnvironmentVariable("Path", $path + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User"), "User") # for the user
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") 
-        nxsOk("$path has been added to the user environment variables.") 
-        nxsWarn("You may need to restart your terminal for the changes to take effect.") 
-        refreshEnv     
+        }
+        else {
+            nxsInfo("Adding $pathToAdd to the users PATH environment variable.") 
+            [System.Environment]::SetEnvironmentVariable("Path", $pathToAdd + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User"), "User") # for the user
+            $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User") 
+            nxsOk("$pathToAdd has been added to the user environment variables.") 
+            nxsWarn("You may need to restart your terminal for the changes to take effect.") 
+            refreshEnv     
+        }
+    } elseif(1) { 
+        if(! (grep $pathToAdd "~/.bash_profile")){
+            $env:Path += ";${pathToAdd}"
+            # nxsOk("export PATH=`"${pathToAdd}:`$PATH`"")
+            echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bash_profile
+        }else{
+            nxsInfo("$pathToAdd already exists in the /.bash_profile")
+        }
+    } else{
+        # Linux
+        if(! (grep $pathToAdd "~/.bashrc")){
+            $env:Path += ";$pathToAdd"
+            echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bashrc
+        }else{
+            nxsInfo("$pathToAdd already exists in the /.bashrc")
+        }
     }
 }
 
