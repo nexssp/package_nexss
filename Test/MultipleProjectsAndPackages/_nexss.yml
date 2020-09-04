@@ -1,0 +1,16 @@
+name: MultipleProjects
+debug: true
+files:
+  - name: src/hello1.js
+  - name: src/hello2.js
+input:
+  - name: test1
+    validate:
+      - type: required
+  - name: test2
+    validate:
+      - type: required
+output:
+  - name: emailTotal
+    validate:
+      - type: number

@@ -18,7 +18,7 @@ function ensureEnvPath {
         exit
     }
 
-    if(0){
+    if($IsWindows){
         if ($([System.Environment]::GetEnvironmentVariable("Path", "User") ).ToLower().Contains($($pathToAdd).ToLower()) -eq $true) { 
         nxsOk("$pathToAdd is already added in your system configuration. If you experiencing issues please restart your terminal.") 
         refreshEnv
@@ -31,7 +31,7 @@ function ensureEnvPath {
             nxsWarn("You may need to restart your terminal for the changes to take effect.") 
             refreshEnv     
         }
-    } elseif(1) { 
+    } elseif($IsMacOS) { 
         if(! (grep $pathToAdd "~/.bash_profile")){
             $env:Path += ";${pathToAdd}"
             # nxsOk("export PATH=`"${pathToAdd}:`$PATH`"")
