@@ -35,7 +35,7 @@ function ensureEnvPath {
     elseif ($IsMacOS) { 
         if (Test-Path "~/.bash_profile") {          
             $exists = Select-String -Path "~/.bash_profile" -Pattern $pathToAdd
-            if ($exists -ne $null) {
+            if ($exists -eq $null) {
                 nxsInfo("Adding path $($pathToAdd) to the environment: ~/.bash_profile")
                 $env:Path += ";${pathToAdd}"
                 # nxsOk("export PATH=`"${pathToAdd}:`$PATH`"")
@@ -53,10 +53,10 @@ function ensureEnvPath {
     }
     else {
         # Linux
-        if (Test-Path "~/.bashrc") {    
-            nxsInfo("Adding path $($pathToAdd) to the environment ~/.bashrc")
+        if (Test-Path "~/.bashrc") {          
             $exists = Select-String -Path "~/.bashrc" -Pattern $pathToAdd
-            if ($exists -ne $null) {
+            if ($exists -eq $null) {
+                nxsInfo("Adding path $($pathToAdd) to the environment ~/.bashrc")
                 $env:Path += ";$pathToAdd"
                 echo "export PATH=`"${pathToAdd}:`$PATH`"" > ~/.bashrc
             }
