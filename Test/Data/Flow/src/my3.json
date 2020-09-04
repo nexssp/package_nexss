@@ -1,0 +1,5 @@
+{
+  "test": "xabc\nadasdas\ndasdasds",
+  "myvar": "${process.env.NEXSS_APPS_PATH}",
+  "myvar2": "${test}-----${myvar}"
+}
