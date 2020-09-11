@@ -1,0 +1,4 @@
+name: Arguments
+debug: true
+files:
+  - name: src/arguments.nexss
