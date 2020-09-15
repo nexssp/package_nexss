@@ -18,6 +18,12 @@ function ur() {
     unrar @args
 }
 
+function tarrr() {
+    if (!(Get-Command tar -errorAction SilentlyContinue)) { 
+        scoop install tar
+    }
+}
+
 
 # Function: Easy-Extract
 function EasyExtract {
@@ -57,7 +63,7 @@ function EasyExtract {
     switch ($Extension) {
         ".7z" { sz $Argum }
         ".bz2" { sz $Argum }
-        ".gz" { sz $Argum }
+        ".gz" { tarrr ; mkdir -p $DestinationPath *>$null ; tar xvzf $Path -C $DestinationPath --strip-components 1 *>$null }
         ".tar" { sz $Argum }
         ".tbz2" { sz $Argum }
         ".tgz" { sz $Argum }
