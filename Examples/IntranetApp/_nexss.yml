@@ -1,24 +1,26 @@
 name: SearchProject
 data:
   metaTitle: This is demoapp
+  __dirname: ${process.cwd()}
 debug: true
 sequences:
   default:
-    - name: Template src/views/pages/home.pug --nxsField=nxsOut
+    - name: Template ${__dirname}/src/views/pages/home.pug --nxsField=nxsOut
   openFile/(?<openFile>.*):
-    - name: Template src/views/pages/openFile.pug
-  # nexss:
-  #   - name: https://nexss.com --nxsField=nxsOut
+    - name: Template ${__dirname}/src/views/pages/openFile.pug
   files.hnxs/?(?<folder>.*):
     - name: src/files.nexss
   (?<page>.*).hnxs:
-    - name: Template src/views/pages/${page}.pug
-  ^about\.*: # Regular expression for sequence
-    seq: default # Example of usage of another sequence in sequence
-    # ^2about(?<found1>.)(?<found2>.)(?<found3>.*):
-    #   seq: default
+    - name: Template ${__dirname}/src/views/pages/${page}.pug
+  ^about\.*:
+    seq: default
+  ^index$:
+    seq: default
   404*:
     - name: Debug --nxsAs=nexssDebugInfo
-    - name: Template src/views/pages/404.pug --nxsField=nxsOut
+    - name: Template ${__dirname}/src/views/pages/404.pug --nxsField=nxsOut
       data:
         metaTitle: There was an error
+commands:
+  - name: init
+    command: nexss . --server
