@@ -1,0 +1,17 @@
+name: Arguments
+debug: true
+files:
+  - name: src/arguments.nexss
+commands:
+  linux:
+    - name: init
+      command: echo "standard command"
+      command-ALPINE: echo "SHOULD NOT BE TAKE ON ALPINE"
+      command-ALPINE3: echo "standard command"
+      command-UBUNTU20: echo "UBUNTU 20 ONLY"
+  win32:
+    - name: init
+      command: echo "this is windows"
+  darwin:
+    - name: init
+      command: echo "this is macos"

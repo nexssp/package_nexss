@@ -1,0 +1,2 @@
+Output/Log "This is the" --nxsPlatform="Windows" --_type="warn"
+Output/Log "This command will appear only on Linux distros" --nxsPlatform="linux"
