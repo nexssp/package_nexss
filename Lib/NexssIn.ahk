@@ -12,12 +12,11 @@ NexssStdin := STDIN.Read()
 NexssStdout := oHTML.parentWindow.JSON.parse(NexssStdin)
 
 ; TODO: better handle of exists object property
-nxsOutAs := "nxsOut"
-try nxsOutAs:=NexssStdout.nxsOutAs
+
+try nxsAs:=NexssStdout.nxsAs
 catch e
 
-if (nxsOutAs) {
-    NexssStdout.resultField_1 := nxsOutAs
-}
 
-NexssStdout.resultField_1 := nxsOutAs
+if (!nxsAs) {
+    NexssStdout.resultField_1 := nxsOut
+}
