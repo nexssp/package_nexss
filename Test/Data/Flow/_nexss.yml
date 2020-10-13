@@ -2,8 +2,10 @@ name: Flow
 debug: true
 files:
   - name: src/my.json
-  - name: src/my2.json
-  # - name: src/my3.json
-  # - name: src/my.ps1
-  # - name: src/my.r
-  # - name: src/my4.json
+  - name: src/my3.json
+  - name: src/my.ps1
+  - name: src/my4.json
+  - name: src/my.php
+  - name: src/my.cr
+  - name: src/my.py
+  - name: src/my.rb
