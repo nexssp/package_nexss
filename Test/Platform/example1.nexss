@@ -3,7 +3,3 @@ Output/Log "This command will appear only on Linux distros" --nxsPlatform="linux
 Output/Log "This command will appear only on Ubuntu" --nxsPlatform="Ubuntu"
 Output/Log "This command will appear only on Alpine3" --nxsPlatform="Alpine3"
 Output/Log "This command will appear only on Windows10 OR MacOS." --nxsPlatform="Windows10,MacOS"
-
-// Program 2
-
-// P "My Veriable"

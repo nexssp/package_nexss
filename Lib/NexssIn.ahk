@@ -15,7 +15,10 @@ NexssStdout := oHTML.parentWindow.JSON.parse(NexssStdin)
 try nxsAs:=NexssStdout.nxsAs
 catch e
 
-
-if (!nxsAs) {
-    NexssStdout.resultField_1 := nxsOut
+resultField_1 := "nxsOut"
+if (nxsAs) {
+    resultField_1 := nxsAs
 }
+
+NexssStdout.nxsAs := ""
+NexssStdout.resultField_1 := ""

@@ -8,5 +8,6 @@ FS/Find Invoice Faktura --inPath="${cwd}/invoices" --inTypes=txt
 Data/Replace --_replaceFrom=".txt" --_replaceTo=".pdf"
 Printer
 FS/Copy --nxsIn="${cwd}/invoices" --_destination=printed --_delete --_sure
+// Debug
 Storage/JSON/Set emailLastUID '${emailLastUID+1}' // We set which email should be checked next
 Output/End "Process has been done." "Found ${emailStoredAttachments.length}"
