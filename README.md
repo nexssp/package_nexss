@@ -7,7 +7,7 @@
 
 - **AutoPrint** - Checks emails for Invoices (PDF contained Invoice word), and automatically prints them. The next run checks for new emails etc etc.
 - **IntranetApp** - Simply Application Presetnation in the Browser using Nexss Programmer Project/Package. Sequence
-- **Dropper** - (TODO)
+- **Dropper** - Multiple Drag and Drop automatic tasks
 - **DistributedApp** - (TODO)
 
 ## More info
