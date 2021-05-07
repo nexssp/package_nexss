@@ -1,15 +1,16 @@
 {
   "name": "SearchProject",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Read me file template.",
   "main": "index.js",
   "dependencies": {
-    "marked": "^0.8.0",
-    "twig": "^1.15.1"
+    "locutus": "^2.0.14",
+    "marked": "^2.0.3",
+    "twig": "^1.15.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nexss . --server"
   },
   "keywords": [],
   "author": "",
