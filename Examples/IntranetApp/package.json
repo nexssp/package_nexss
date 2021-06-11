@@ -1,11 +1,10 @@
 {
-  "name": "SearchProject",
-  "version": "1.0.1",
-  "description": "Read me file template.",
+  "name": "nexss-programmer-exampleapp",
+  "version": "1.0.2",
+  "description": "Example Nexss Programmer App",
   "main": "index.js",
   "dependencies": {
-    "locutus": "^2.0.14",
-    "marked": "^2.0.3",
+    "locutus": "^2.0.15",
     "twig": "^1.15.4"
   },
   "devDependencies": {},
@@ -14,5 +13,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
