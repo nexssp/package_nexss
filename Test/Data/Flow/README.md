@@ -5,5 +5,5 @@ Data Flow of Nexss Programmer
 ## Examples
 
 ```sh
-nexss 
+nexss Nexss/Test/Data/Flow
 ```

@@ -22,5 +22,5 @@ sequences:
       data:
         metaTitle: There was an error
 commands:
-  - name: init
+  - name: start
     command: nexss . --server
