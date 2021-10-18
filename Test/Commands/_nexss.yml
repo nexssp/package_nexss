@@ -5,13 +5,13 @@ files:
 commands:
   linux:
     - name: init
-      command: echo "standard command"
-      command-ALPINE: echo "SHOULD NOT BE TAKE ON ALPINE"
-      command-ALPINE3: echo "standard command"
-      command-UBUNTU20: echo "UBUNTU 20 ONLY"
+      command: echo "Welcome to the Nexss Programmer / Linux"
+      command-ALPINE: echo "Welcome to the Nexss Programmer / Alpine"
+      command-ALPINE3: echo "Welcome to the Nexss Programmer / Alpine 3"
+      command-UBUNTU20: echo "Welcome to the Nexss Programmer / Unbuntu 20"
   win32:
     - name: init
-      command: echo "this is windows"
+      command: echo Welcome to the Nexss Programmer / Windows
   darwin:
     - name: init
       command: echo "this is macos"
