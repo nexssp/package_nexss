@@ -7,7 +7,6 @@
     "locutus": "^2.0.15",
     "twig": "^1.15.4"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "nexss . --server"
   },
