@@ -2,7 +2,7 @@
 import sys
 
 def nxsInfo(info):
-    sys.stderr.write(f'NEXSS/info: {info}')
+    sys.stderr.write("NEXSS/info: %s" % info)
 
 def nxsOk(ok):
     sys.stderr.write("NEXSS/ok: %s" % ok)
