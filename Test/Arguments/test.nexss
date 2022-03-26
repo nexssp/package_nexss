@@ -1,0 +1,3 @@
+"./writeFile.js" --params1=abc 1 2 acd --par3="xsa ad asdas das dsasa dsad asd asds ds dad a"
+"./writeFile2.js" --params2=xxx 1 z deb --par2=asdasdsadsad
+Output/End "It works!"
