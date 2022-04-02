@@ -2,4 +2,4 @@ Output/Log "This command will appear only on All Windowses" --nxsPlatform="Windo
 Output/Log "This command will appear only on Linux distros" --nxsPlatform="linux"
 Output/Log "This command will appear only on Ubuntu" --nxsPlatform="Ubuntu"
 Output/Log "This command will appear only on Alpine3" --nxsPlatform="Alpine3"
-Output/Log "This command will appear only on Windows10 OR MacOS." --nxsPlatform="Windows10,MacOS"
+Output/Log "This command will appear only on Windows10 OR macOS." --nxsPlatform="Windows10,macOS"
