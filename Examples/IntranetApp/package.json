@@ -4,8 +4,8 @@
   "description": "Example Nexss Programmer App",
   "main": "index.js",
   "dependencies": {
-    "locutus": "^2.0.15",
-    "twig": "^1.15.4"
+    "locutus": "^3.0.16",
+    "twig": "^2.0.0"
   },
   "scripts": {
     "start": "nexss . --server"
